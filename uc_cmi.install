@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Install, module to create database for the uc_cmi module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function uc_cmi_schema() {
+  $schema = [];
+  $schema['uc_payment_cmi_callback'] = [
+    'description' => 'Logs For Cmi Callback Notifications.',
+    'fields' => [
+      'order_id' => [
+        'description' => 'Order ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'payment_id' => [
+        'description' => 'Payment ID from Callback cmi.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'merchant_id' => [
+        'description' => 'Merchant ID from Callback cmi.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'payment_type' => [
+        'description' => 'Payment type from Callback cmi.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'payment_brand' => [
+        'description' => 'Payment Brand from Callback cmi.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'payment_amount' => [
+        'description' => 'Payment Amount from Callback cmi.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'payment_status' => [
+        'description' => 'Payment Stauts from Callback cmi.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'customer_email' => [
+        'description' => 'E-mail address of the customer.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'created_at' => [
+        'description' => 'cmi callback timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'indexes' => [
+      'order_id' => ['order_id'],
+    ],
+    'primary key' => ['order_id'],
+    'foreign keys' => [
+      'uc_orders' => [
+        'table' => 'uc_orders',
+        'columns' => ['order_id' => 'order_id'],
+      ],
+    ],
+  ];
+  return $schema;
+}
