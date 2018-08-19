@@ -1,0 +1,11 @@
+uc_cmi:
+  version: 'v10'
+  js:
+    js/uc_cmi.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+  css:
+    theme:
+      css/uc_cmi.css: {}

@@ -1,0 +1,43 @@
+# Callback route for Cmi form ayments.
+uc_cmi.qpf_callback:
+  path: '/uc_cmi/callback'
+  defaults:
+    _controller: '\Drupal\uc_cmi\Controller\CmiCallbackController::CmiCallback'
+    _title: 'Cmi Callback'
+  requirements:
+    _access: 'TRUE'
+
+uc_cmi.qpf_mob_callback:
+  path: '/uc_cmi/mobok'
+  defaults:
+    _controller: '\Drupal\uc_cmi\Controller\CmiCallbackController::CmiMobileOK'
+    _title: 'Cmi Mobile Ok'
+  requirements:
+    _access: 'TRUE'
+
+# Callback route for Cmi form ayments.
+uc_cmi.qpf_senddata:
+  path: '/uc_cmi/senddata'
+  defaults:
+    _controller: '\Drupal\uc_cmi\Controller\CmiCallbackController::CmiSendData'
+    _title: 'chargement vers la page de paiement ...'
+  requirements:
+    _access: 'TRUE'
+# OK route for Cmi form ayments.
+
+uc_cmi.qpf_ok:
+  path: '/uc_cmi/ok'
+  defaults:
+    _controller: '\Drupal\uc_cmi\Controller\CmiCallbackController::CmiOK'
+    _title: 'Cmi ok'
+  requirements:
+    _permission: 'access content'
+
+# Fail route for Cmi form ayments.
+uc_cmi.qpf_fail:
+  path: '/uc_cmi/fail'
+  defaults:
+    _controller: '\Drupal\uc_cmi\Controller\CmiCallbackController::CmiFail'
+    _title: 'Cmi Fail'
+  requirements:
+    _permission: 'access content'
